@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 125px;
   color: black;
   background: gainsboro;
   font-size: 48px;
@@ -39,7 +39,7 @@ const LoginButton = styled.div`
   align-items: center;
   p {
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 1.2em;
   }
 `;

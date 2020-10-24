@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 import GlobalStyles from "./GlobalStyles";
 import Header from "./Header";
@@ -8,14 +9,18 @@ import Main from "./Main";
 
 const App = () => {
   return (
-    <>
+    <Wrapper>
       <GlobalStyles />
       <Header />
       <Hero />
       <Nav />
       <Main />
-    </>
+    </Wrapper>
   );
 };
 
 export default App;
+
+const Wrapper = styled.div`
+  background: rgb(245, 245, 245);
+`;

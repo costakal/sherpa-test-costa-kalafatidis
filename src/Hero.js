@@ -15,6 +15,6 @@ export default Hero;
 
 const HeroImg = styled.img`
   width: 100vw;
-  height: 300px;
+  height: 250px;
   object-fit: cover;
 `;

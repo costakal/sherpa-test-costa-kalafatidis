@@ -23,10 +23,20 @@ const Nav = () => {
 export default Nav;
 
 const Wrapper = styled.div`
-  position: absolute;
   display: flex;
-  width: 200px;
-
+  flex-direction: column;
+  position: absolute;
+  top: 145px;
+  left: 10px;
+  padding: 20px 0px;
   background: gainsboro;
+  border-radius: 20px;
 `;
-const NavButton = styled.button``;
+const NavButton = styled.button`
+  margin: 10px 20px;
+  padding: 10px 20px;
+  background: white;
+  border: none;
+  font-size: 18px;
+  border-radius: 20px;
+`;
