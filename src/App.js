@@ -22,5 +22,6 @@ const App = () => {
 export default App;
 
 const Wrapper = styled.div`
+  height: 100vh;
   background: rgb(245, 245, 245);
 `;

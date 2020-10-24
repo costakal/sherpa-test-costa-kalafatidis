@@ -17,10 +17,14 @@ const Event = ({ event }) => {
 export default Event;
 
 const Wrapper = styled.div`
+  padding: 25px;
   display: flex;
+  position: absolute;
+  top: -20px;
   flex-direction: column;
   align-items: center;
   background: white;
+  border-radius: 50px;
   img {
     width: 100px;
   }
