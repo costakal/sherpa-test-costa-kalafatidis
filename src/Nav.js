@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const Nav = () => {
-  const [navSelection, setNavSelection] = useState("home");
+const Nav = ({ navSelection }) => {
   const [menuOptions, setMenuOptions] = useState([]);
 
   useEffect(() => {
     fetch(`https://tt-sherpa-backend.herokuapp.com/menu/${navSelection}`)
       .then((res) => res.json())
       .then((data) => setMenuOptions(data));
-  }, []);
+  }, [navSelection]);
 
   return (
     <Wrapper>
-      {menuOptions.map((option) => (
-        <NavButton>{option}</NavButton>
+      {menuOptions.map((option, index) => (
+        <NavButton key={option + index}>{option}</NavButton>
       ))}
     </Wrapper>
   );
@@ -31,6 +30,7 @@ const Wrapper = styled.div`
   padding: 20px 0px;
   background: gainsboro;
   border-radius: 20px;
+  z-index: 100;
 `;
 const NavButton = styled.button`
   margin: 10px 20px;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Event from "./Event";
 
-const Main = () => {
+const Main = ({ setNavSelection, toggle, setToggle }) => {
   const [eventList, setEventList] = useState([]);
 
   useEffect(() => {
@@ -14,9 +14,19 @@ const Main = () => {
 
   return (
     <Wrapper>
-      {eventList.map((event) => {
-        return <Event event={event} />;
-      })}
+      <div>
+        {eventList.map((event) => {
+          return (
+            <Event
+              key={event.id}
+              event={event}
+              setNavSelection={setNavSelection}
+              toggle={toggle}
+              setToggle={setToggle}
+            />
+          );
+        })}
+      </div>
     </Wrapper>
   );
 };
@@ -24,7 +34,11 @@ const Main = () => {
 export default Main;
 
 const Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-evenly;
+  position: absolute;
+  top: 310px;
+  width: 100%;
+  div {
+    display: flex;
+    justify-content: space-evenly;
+  }
 `;

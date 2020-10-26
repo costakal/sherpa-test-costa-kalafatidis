@@ -1,11 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 
-const Header = () => {
+const Header = ({ toggle, setToggle, navSelection, setNavSelection }) => {
   return (
-    <Wrapper>
-      <h1>Marketplace</h1>
-      <LoginButton>
+    <Wrapper toggle={toggle}>
+      <h1
+        onClick={() => {
+          if (navSelection === "events") {
+            setNavSelection("home");
+            setToggle(!toggle);
+          }
+        }}
+      >
+        Marketplace
+      </h1>
+      <LoginButton
+        onClick={() => {
+          setToggle(!toggle);
+        }}
+      >
         <p>Profile Login</p>
       </LoginButton>
     </Wrapper>
@@ -18,11 +31,15 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 125px;
+  height: ${(props) => (props.toggle ? "125px" : "50px")};
   color: black;
   background: gainsboro;
-  font-size: 48px;
+  font-size: ${(props) => (props.toggle ? "48px" : "20px")};
   font-weight: bold;
+  transition: all 1s;
+  h1 {
+    cursor: pointer;
+  }
 `;
 
 const LoginButton = styled.div`
