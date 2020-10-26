@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+
+import { AppContext } from "./AppContext";
 
 import hero from "./assets/bg.jpg";
 
-const Hero = ({ toggle }) => {
+const Hero = () => {
+  const { toggle } = useContext(AppContext);
+
   return (
     <>
       <HeroImg alt="hero" src={hero} toggle={toggle} />

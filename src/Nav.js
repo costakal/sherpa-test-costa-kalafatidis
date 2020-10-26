@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 
-const Nav = ({ navSelection }) => {
+import { AppContext } from "./AppContext";
+
+const Nav = () => {
+  const { toggle, navSelection } = useContext(AppContext);
   const [menuOptions, setMenuOptions] = useState([]);
 
   useEffect(() => {
@@ -13,7 +16,13 @@ const Nav = ({ navSelection }) => {
   return (
     <Wrapper>
       {menuOptions.map((option, index) => (
-        <NavButton key={option + index}>{option}</NavButton>
+        <NavButton
+          key={option + index}
+          toggle={toggle}
+          style={toggle === false ? { top: "300px" } : {}}
+        >
+          {option}
+        </NavButton>
       ))}
     </Wrapper>
   );

@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
-const Header = ({ toggle, setToggle, navSelection, setNavSelection }) => {
+import { AppContext } from "./AppContext";
+
+const Header = () => {
+  const {
+    toggle,
+    setToggle,
+    navSelection,
+    setNavSelection,
+    setEventItems,
+  } = useContext(AppContext);
+
   return (
     <Wrapper toggle={toggle}>
       <h1
@@ -9,16 +19,13 @@ const Header = ({ toggle, setToggle, navSelection, setNavSelection }) => {
           if (navSelection === "events") {
             setNavSelection("home");
             setToggle(!toggle);
+            setEventItems([]);
           }
         }}
       >
         Marketplace
       </h1>
-      <LoginButton
-        onClick={() => {
-          setToggle(!toggle);
-        }}
-      >
+      <LoginButton>
         <p>Profile Login</p>
       </LoginButton>
     </Wrapper>

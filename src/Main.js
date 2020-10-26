@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 
 import Event from "./Event";
+import EventDetails from "./EventDetails";
 
-const Main = ({ setNavSelection, toggle, setToggle }) => {
+import { AppContext } from "./AppContext";
+
+const Main = () => {
+  const { navSelection, eventItems } = useContext(AppContext);
+
   const [eventList, setEventList] = useState([]);
 
   useEffect(() => {
@@ -16,17 +21,15 @@ const Main = ({ setNavSelection, toggle, setToggle }) => {
     <Wrapper>
       <div>
         {eventList.map((event) => {
-          return (
-            <Event
-              key={event.id}
-              event={event}
-              setNavSelection={setNavSelection}
-              toggle={toggle}
-              setToggle={setToggle}
-            />
-          );
+          return <Event key={event.id} event={event} />;
         })}
       </div>
+      <EventsDeatilsWrapper
+        style={navSelection === "home" ? { opacity: "0" } : { display: "1" }}
+      >
+        <h2>Featured Meetings</h2>
+        <EventDetails eventItems={eventItems} />
+      </EventsDeatilsWrapper>
     </Wrapper>
   );
 };
@@ -40,5 +43,20 @@ const Wrapper = styled.div`
   div {
     display: flex;
     justify-content: space-evenly;
+  }
+`;
+
+const EventsDeatilsWrapper = styled.div`
+  position: fixed;
+  left: 220px;
+  top: 15vh;
+  display: flex;
+  flex-direction: column;
+  transition: all 1.5s;
+  h2 {
+    margin-left: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 0px 0px 10px 0px;
   }
 `;

@@ -14,6 +14,7 @@ const EventItem = ({ item }) => {
 export default EventItem;
 
 const Wrapper = styled.div`
+  margin: 10px;
   display: flex;
   align-items: center;
   flex-direction: column;
