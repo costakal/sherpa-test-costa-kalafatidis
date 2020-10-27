@@ -12,9 +12,9 @@ const Main = () => {
     eventItems,
     eventList,
     setEventList,
-    selectedEvent,
-    toggle,
     detailsLeft,
+    isSelected,
+    selectedDetails,
   } = useContext(AppContext);
 
   useEffect(() => {
@@ -25,19 +25,25 @@ const Main = () => {
 
   return (
     <Wrapper>
-      <div>
+      <div isSelected={isSelected}>
         {eventList.map((event) => {
           return <Event key={event.id} event={event} />;
         })}
       </div>
       <EventsDeatilsWrapper
-        style={navSelection === "home" ? { opacity: "0" } : { opacity: "1" }}
+        style={
+          navSelection === "home"
+            ? { opacity: "0" }
+            : { opacity: "1" } || navSelection === "events"
+            ? { opacity: "1" }
+            : { opacity: "0" }
+        }
       >
         <h2>Featured Meetings</h2>
         <EventDetails eventItems={eventItems} />
       </EventsDeatilsWrapper>
       <SelectedEvent style={{ left: `${detailsLeft}` }}>
-        {selectedEvent.detail}
+        {selectedDetails}
       </SelectedEvent>
     </Wrapper>
   );
@@ -61,7 +67,7 @@ const EventsDeatilsWrapper = styled.div`
   top: 15vh;
   display: flex;
   flex-direction: column;
-  transition: all 1.5s;
+  transition: all 1.5s 0.5s;
   h2 {
     margin-left: 10px;
     font-size: 26px;
@@ -77,5 +83,5 @@ const SelectedEvent = styled.div`
   left: 0px;
   background: white;
   border-radius: 20px;
-  transition: all 1s;
+  transition: all 1s linear;
 `;

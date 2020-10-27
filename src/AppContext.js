@@ -11,6 +11,7 @@ export const AppProvider = ({ children }) => {
   const [topStyle, setTopStyle] = useState("145px");
   const [detailsLeft, setDetailsLeft] = useState("-220px");
   const [selectedEvent, setSelectedEvent] = useState({});
+  const [selectedDetails, setSelectedDetails] = useState("");
 
   return (
     <AppContext.Provider
@@ -31,6 +32,8 @@ export const AppProvider = ({ children }) => {
         setDetailsLeft,
         selectedEvent,
         setSelectedEvent,
+        selectedDetails,
+        setSelectedDetails,
       }}
     >
       {children}

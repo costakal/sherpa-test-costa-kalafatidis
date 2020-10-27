@@ -49,9 +49,13 @@ const Wrapper = styled.div`
   background: gainsboro;
   font-size: ${(props) => (props.toggle ? "48px" : "20px")};
   font-weight: bold;
-  transition: all 1s;
+  transition: all 1s ease-in-out;
   h1 {
     cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+      color: grey;
+    }
   }
 `;
 

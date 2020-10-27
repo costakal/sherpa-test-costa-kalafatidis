@@ -44,4 +44,10 @@ const NavButton = styled.button`
   border: none;
   font-size: 18px;
   border-radius: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  &:hover {
+    background: grey;
+    color: white;
+  }
 `;
