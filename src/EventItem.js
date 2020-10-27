@@ -5,8 +5,12 @@ const EventItem = ({ item }) => {
   return (
     <Wrapper>
       <p>{item.description}</p>
-      <p>{item.start}</p>
-      <p>{item.end}</p>
+      <p>
+        Start Time: <span>{item.start}</span>
+      </p>
+      <p>
+        End Time: <span>{item.end}</span>
+      </p>
     </Wrapper>
   );
 };
@@ -15,11 +19,18 @@ export default EventItem;
 
 const Wrapper = styled.div`
   margin: 10px;
+  padding: 20px;
   display: flex;
-  align-items: center;
   flex-direction: column;
   background: white;
   border-radius: 50px;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
+  p {
+    font-weight: bold;
+    span {
+      font-weight: 400;
+      font-style: italic;
+    }
+  }
 `;

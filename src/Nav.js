@@ -1,15 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 import { AppContext } from "./AppContext";
-
-const translateNav = keyframes`
-from{
-  transform: translateY(0px)
-} to {
-  transform: translateY(130px)
-}
-`;
 
 const Nav = () => {
   const { toggle, navSelection, topStyle } = useContext(AppContext);

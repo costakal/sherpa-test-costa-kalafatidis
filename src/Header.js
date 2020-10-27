@@ -11,6 +11,8 @@ const Header = () => {
     setNavSelection,
     setEventItems,
     setTopStyle,
+    setDetailsLeft,
+    setSelectedEvent,
   } = useContext(AppContext);
 
   return (
@@ -18,10 +20,12 @@ const Header = () => {
       <h1
         onClick={() => {
           if (navSelection === "events") {
+            setSelectedEvent({});
             setNavSelection("home");
             setToggle(!toggle);
             setEventItems([]);
             setTopStyle("145px");
+            setDetailsLeft("-220px");
           }
         }}
       >
