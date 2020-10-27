@@ -1,14 +1,23 @@
 import React, { useState, useEffect, useContext } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import Event from "./Event";
 import EventDetails from "./EventDetails";
 
 import { AppContext } from "./AppContext";
 
-const Main = () => {
-  const { navSelection, eventItems } = useContext(AppContext);
+const moveSelectedEvent = () => {
+  return keyframes`
+  from{
 
+} to {
+
+}
+`;
+};
+
+const Main = () => {
+  const { navSelection, eventItems, eventId } = useContext(AppContext);
   const [eventList, setEventList] = useState([]);
 
   useEffect(() => {
@@ -25,7 +34,7 @@ const Main = () => {
         })}
       </div>
       <EventsDeatilsWrapper
-        style={navSelection === "home" ? { opacity: "0" } : { display: "1" }}
+        style={navSelection === "home" ? { opacity: "0" } : { opacity: "1" }}
       >
         <h2>Featured Meetings</h2>
         <EventDetails eventItems={eventItems} />

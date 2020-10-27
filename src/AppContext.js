@@ -7,6 +7,7 @@ export const AppProvider = ({ children }) => {
   const [navSelection, setNavSelection] = useState("home");
   const [eventItems, setEventItems] = useState([]);
   const [eventId, setEventId] = useState(null);
+  const [topStyle, setTopStyle] = useState("145px");
 
   return (
     <AppContext.Provider
@@ -19,6 +20,8 @@ export const AppProvider = ({ children }) => {
         setEventItems,
         eventId,
         setEventId,
+        topStyle,
+        setTopStyle,
       }}
     >
       {children}

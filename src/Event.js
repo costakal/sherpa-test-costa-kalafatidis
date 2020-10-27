@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 
 import { AppContext } from "./AppContext";
@@ -10,10 +10,15 @@ const Event = ({ event }) => {
     toggle,
     setToggle,
     setEventItems,
+    setEventId,
+    setTopStyle,
   } = useContext(AppContext);
+
   return (
     <Wrapper
       onClick={() => {
+        setEventId(event.id);
+        setTopStyle("250px");
         fetch(
           `https://tt-sherpa-backend.herokuapp.com/events/${event.id}/meetings`
         )
@@ -26,7 +31,13 @@ const Event = ({ event }) => {
           setToggle(!toggle);
         }
       }}
-      style={navSelection === "events" ? { opacity: "0" } : { opactiy: "1" }}
+      style={
+        navSelection === "events"
+          ? {
+              opacity: "0",
+            }
+          : { opactiy: "1" }
+      }
     >
       <div>
         <img

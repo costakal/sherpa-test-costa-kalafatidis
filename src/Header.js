@@ -10,6 +10,7 @@ const Header = () => {
     navSelection,
     setNavSelection,
     setEventItems,
+    setTopStyle,
   } = useContext(AppContext);
 
   return (
@@ -20,6 +21,7 @@ const Header = () => {
             setNavSelection("home");
             setToggle(!toggle);
             setEventItems([]);
+            setTopStyle("145px");
           }
         }}
       >

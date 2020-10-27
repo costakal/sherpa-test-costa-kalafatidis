@@ -1,10 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import { AppContext } from "./AppContext";
 
+const translateNav = keyframes`
+from{
+  transform: translateY(0px)
+} to {
+  transform: translateY(130px)
+}
+`;
+
 const Nav = () => {
-  const { toggle, navSelection } = useContext(AppContext);
+  const { toggle, navSelection, topStyle } = useContext(AppContext);
   const [menuOptions, setMenuOptions] = useState([]);
 
   useEffect(() => {
@@ -14,13 +22,9 @@ const Nav = () => {
   }, [navSelection]);
 
   return (
-    <Wrapper>
+    <Wrapper style={{ top: `${topStyle}` }}>
       {menuOptions.map((option, index) => (
-        <NavButton
-          key={option + index}
-          toggle={toggle}
-          style={toggle === false ? { top: "300px" } : {}}
-        >
+        <NavButton key={`${option}-${index}`} toggle={toggle}>
           {option}
         </NavButton>
       ))}
@@ -34,12 +38,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 145px;
   left: 10px;
   padding: 20px 0px;
   background: gainsboro;
   border-radius: 20px;
   z-index: 100;
+  transition: all 1s;
 `;
 const NavButton = styled.button`
   margin: 10px 20px;
